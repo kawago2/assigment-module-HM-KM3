@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <!-- interndata.mahasiswa tree view -->
+  <record id="interndata_mahasiswa_view_tree" model="ir.ui.view">
+    <field name="name">Daftar Mahasiswa</field>
+    <field name="model">interndata.mahasiswa</field>
+    <field name="arch" type="xml">
+      <tree>
+        <!-- Add your fields here -->
+        <field name="name" />
+        <field name="nim" />
+        <field name="jurusan" />
+      </tree>
+    </field>
+  </record>
+  <!-- interndata.mahasiswa form view -->
+  <record id="interndata_mahasiswa_view_form" model="ir.ui.view">
+    <field name="name">Form Mahasiswa</field>
+    <field name="model">interndata.mahasiswa</field>
+    <field name="arch" type="xml">
+      <form string="">
+        <sheet>
+          <group name="mahasiswa" string="Mahasiswa">
+            <!-- Add your fields here -->
+            <field name="name" />
+            <field name="nim" />
+            <field name="jurusan" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <!-- interndata.mahasiswa action window -->
+  <record id="interndata_mahasiswa_action" model="ir.actions.act_window">
+    <field name="name">Daftar Mahasiswa</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">interndata.mahasiswa</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <!-- This Menu Item must have a parent and an action -->
+  <menuitem id="interndata_mahasiswa_menu_act" name="Mahasiswa" parent="interndata_mahasiswa_menu_categ" action="interndata_mahasiswa_action" sequence="20"/>
+</odoo>
