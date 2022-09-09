@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <!-- res.partner action window -->
+  <record id="res_partner_karyawan_action" model="ir.actions.act_window">
+    <field name="name">Karyawan</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">res.partner</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!-- This Menu Item must have a parent and an action -->
+  <menuitem id="karyawan_view_menu_act" name="Karyawan" parent="interndata_menu_root" action="res_partner_karyawan_action" sequence="60"/>
+</odoo>

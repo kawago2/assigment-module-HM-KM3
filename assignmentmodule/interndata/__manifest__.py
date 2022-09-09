@@ -29,7 +29,8 @@
         'views/program_view.xml',
         'views/mahasiswa_view.xml',
         'views/perusahaan_view.xml',
-        
+        'views/karyawan_view.xml',
+
 
     ],
     # only loaded in demonstration mode
