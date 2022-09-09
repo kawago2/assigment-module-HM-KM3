@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <!-- interndata.program tree view -->
+  <record id="interndata_program_view_tree" model="ir.ui.view">
+    <field name="name">Daftar Program</field>
+    <field name="model">interndata.program</field>
+    <field name="arch" type="xml">
+      <tree>
+        <!-- Add your fields here -->
+        <field name="name" />
+        <field name="kode_program" />
+      </tree>
+    </field>
+  </record>
+  <!-- interndata.program form view -->
+  <record id="interndata_program_view_form" model="ir.ui.view">
+    <field name="name">Form Program</field>
+    <field name="model">interndata.program</field>
+    <field name="arch" type="xml">
+      <form string="Program">
+        <sheet>
+          <group>
+            <!-- Add your fields here -->
+            <field name="name" />
+            <field name="kode_program" />
+          </group>
+          <group name="daftar_mahasiswa" string="Daftar Mahasiswa">
+            <field name="mahasiswa_id" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <!-- interndata.program action window -->
+  <record id="interndata_program_action" model="ir.actions.act_window">
+    <field name="name">Program</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">interndata.program</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <!-- This Menu Item must have a parent and an action -->
+  <menuitem id="interndata_program_menu_act" name="Program" parent="interndata_menu_root" action="interndata_program_action" sequence="20"/>
+</odoo>

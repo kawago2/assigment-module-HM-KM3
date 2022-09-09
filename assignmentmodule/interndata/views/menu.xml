@@ -2,7 +2,4 @@
 <odoo>
   <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
   <menuitem id="interndata_menu_root" name="Intern Data" sequence="10"/>
-
-  <!-- This Menu Item Must have a parent -->
-  <menuitem id="interndata_mahasiswa_menu_categ" name="Mahasiswa" parent="interndata_menu_root" sequence="10"/>
 </odoo>

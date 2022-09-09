@@ -26,7 +26,10 @@
     'data': [
         'security/ir.model.access.csv',
         'views/menu.xml',
+        'views/program_view.xml',
         'views/mahasiswa_view.xml',
+        'views/perusahaan_view.xml',
+        
 
     ],
     # only loaded in demonstration mode
