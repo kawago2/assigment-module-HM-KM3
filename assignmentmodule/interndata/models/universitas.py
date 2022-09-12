@@ -13,5 +13,4 @@ class Universitas(models.Model):
         'interndata.mahasiswa',
         'universitas_id',
         string='Daftar Mahasiswa',
-       
     )

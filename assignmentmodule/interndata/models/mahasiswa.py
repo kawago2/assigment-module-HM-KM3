@@ -6,9 +6,15 @@ class DaftarMahasiswa(models.Model):
     # _inherit = ['res.partner', ]
     _description = 'Model untuk daftar mahasiswa'
 
+    tanggal_cetak = fields.Date.today()
     name = fields.Char(string='Nama Mahasiswa')
     jurusan = fields.Char(string='Jurusan')
     nim = fields.Char(string='NIM', size=20)
+    daerah_asal = fields.Char(string='Daerah Asal')
+    kepala_jurusan = fields.Char(string='Kepala Jurusan')
+    semester = fields.Char(string='Semester')
+    ipk = fields.Float(string='IPK')
+    jumlah_sks = fields.Integer(string='Jumlah SKS')
     jenis_kelamin = fields.Selection(
         [
             ('Laki-laki', 'Laki-laki'),

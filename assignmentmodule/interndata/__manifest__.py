@@ -20,11 +20,13 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'report_xlsx'],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'report/report.xml',
+        'report/print_sr_mahasiswa.xml',
         'views/menu.xml',
         'views/program_view.xml',
         'views/mahasiswa_view.xml',

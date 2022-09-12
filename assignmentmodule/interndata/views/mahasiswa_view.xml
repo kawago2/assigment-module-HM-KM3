@@ -10,6 +10,7 @@
         <field name="name" />
         <field name="nim" />
         <field name="jurusan" />
+        <field name="daerah_asal" />
         <field name="jenis_kelamin" />
         <field name="universitas_id" />
         <field name="program_id" />
@@ -29,7 +30,12 @@
             <field name="name" required="1" />
             <field name="nim" required="1" />
             <field name="jurusan" required="1" />
+            <field name="daerah_asal" required="1" />
+            <field name="kepala_jurusan" required="1" />
             <field name="jenis_kelamin" required="1" />
+            <field name="semester" required="1" />
+            <field name="ipk" required="1" />
+            <field name="jumlah_sks" required="1" />
           </group>
           <group name="program" string="Program">
             <field name="program_id" />

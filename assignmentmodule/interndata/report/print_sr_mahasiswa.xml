@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <template id="report_interndata_mahasiswa_pdf">
+    <t t-call="web.html_container">
+      <t t-call="web.external_layout">
+        <div class="page">
+          <img src="https://www.hashmicro.com/id/blog/wp-content/uploads/2021/05/hashmicro-squarelogo-800x800-1.png" height="300px" style="display: block;margin-left: auto;margin-right: auto;"></img>
+          <h2>
+            <b>Surat Rekomendasi Universitas</b>
+          </h2>
+          <t t-foreach="docs" t-as="o">
+            <div class="row">
+              <div class="col-4">Nama </div>
+              <div class="col-8">
+                :
+                <span t-field="o.name" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">NIM </div>
+              <div class="col-8">
+                :
+                <span t-field="o.nim" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">Jurusan </div>
+              <div class="col-8">
+                :
+                <span t-field="o.jurusan" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">Semester </div>
+              <div class="col-8">
+                :
+                <span t-field="o.semester" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">IPK </div>
+              <div class="col-8">
+                :
+                <span t-field="o.ipk" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">Jumlah SKS yang sudah ditempuh dan lulus </div>
+              <div class="col-8">
+                :
+                <span t-field="o.jumlah_sks" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">Program yang diikuti </div>
+              <div class="col-8">
+                :
+                <span t-field="o.program_id[0].name" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">Perusahaan </div>
+              <div class="col-8">
+                :
+                <span t-field="o.perusahaan_id.name" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">Universitas </div>
+              <div class="col-8">
+                :
+                <span t-field="o.universitas_id.name" />
+              </div>
+            </div>
+
+            <p>
+              untuk menjadi peserta program Magang dan Studi Inpedenden Bersertifikat
+              Tahun 2022 dengan ketentuan:
+            </p>
+            <p>...</p>
+            <p>Demikian surat rekomendasi ini kami sampaikan untuk dipergunakan sebagaimana mestinya. </p>
+
+
+            <table style="float:right;">
+              <tr>
+                <td style="text-align:center;">
+                  <span t-field="o.daerah_asal" />
+                  ,
+                  <span id="demo"></span>
+                  <script>
+                    const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+                    n =  new Date();
+                    y = n.getFullYear();
+                    m = month[n.getMonth()];
+                    d = n.getDate();
+                    document.getElementById("demo").innerHTML = d + " " + m + " " + y;
+                  </script>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:center">
+                  <img src="https://hastaprakarsa.co.id/wp-content/uploads/2020/02/tanda-tangan-mujiono.png" alt="TTD" width="50px" height="60px"></img>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:center">
+                  <span t-field="o.kepala_jurusan" />
+                </td>
+              </tr>
+
+            </table>
+
+            <!-- <t t-foreach="o.program_id" t-as="d">
+              <div class="row">
+                <div class="col-4">Jenis Kelamin :</div>
+                <div class="col-8">
+                  <span t-field="d.name" />
+                </div>
+              </div>
+            </t> -->
+          </t>
+        </div>
+      </t>
+    </t>
+  </template>
+</odoo>
