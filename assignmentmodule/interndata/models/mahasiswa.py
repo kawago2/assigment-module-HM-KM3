@@ -3,10 +3,11 @@ from odoo import api, fields, models
 
 class DaftarMahasiswa(models.Model):
     _name = 'interndata.mahasiswa'
-    # _inherit = ['res.partner', ]
+    # _inherit = 'res.partner'
     _description = 'Model untuk daftar mahasiswa'
 
     tanggal_cetak = fields.Date.today()
+    avatar = fields.Image(string="Image")
     name = fields.Char(string='Nama Mahasiswa')
     jurusan = fields.Char(string='Jurusan')
     nim = fields.Char(string='NIM', size=20)

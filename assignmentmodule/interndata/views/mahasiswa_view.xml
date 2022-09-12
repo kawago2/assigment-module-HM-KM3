@@ -25,6 +25,7 @@
     <field name="arch" type="xml">
       <form string="Data Mahasiswa">
         <sheet>
+          <field name="avatar" widget="image" class="oe_avatar" />
           <group name="mahasiswa" string="Mahasiswa">
             <!-- Add your fields here -->
             <field name="name" required="1" />
@@ -50,12 +51,67 @@
       </form>
     </field>
   </record>
+  <!-- interndata.mahasiswa kanban view -->
+  <record id="interndata_mahasiswa_view_kanban" model="ir.ui.view">
+    <field name="name">interndata.mahasiswa.view.kanban</field>
+    <field name="model">interndata.mahasiswa</field>
+    <field name="arch" type="xml">
+      <kanban>
+        <field name="id" />
+        <field name="name" />
+        <field name="jurusan" />
+        <field name="avatar" />
+        <field name="nim" />
+        <templates>
+          <t t-name="kanban-box">
+            <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
+              <t t-if="!record.id.raw_value">
+                <t t-set="background_image" t-value="kanban_image('interndata.mahasiswa', 'avatar', record.id.raw_value)" />
+                <div class="o_kanban_image_fill_left d-none d-md-block" t-attf-style="background-image:url('#{background_image}')">
+                  <img class="o_kanban_image_inner_pic" t-if="record.id.raw_value" t-att-alt="record.id.value" t-att-src="kanban_image('interndata.mahasiswa', 'avatar', record.id.raw_value)" />
+                </div>
+                <div class="o_kanban_image d-md-none" t-attf-style="background-image: url(#{background_image})">
+                  <img class="o_kanban_image_inner_pic" t-if="record.id.raw_value" t-att-alt="record.id.value" t-att-src="kanban_image('interndata.mahasiswa', 'avatar', record.id.raw_value)" />
+                </div>
+              </t>
+              <t t-else="">
+                <div class="o_kanban_image_fill_left o_kanban_image_full" t-attf-style="background-image: url(#{kanban_image('interndata.mahasiswa', 'avatar', record.id.raw_value)})" role="img" />
+              </t>
+              <div class="oe_kanban_details d-flex flex-column">
+                <strong class="o_kanban_record_title oe_partner_heading">
+                  <field name="name" />
+                </strong>
+                <div class="o_kanban_tags_section oe_kanban_partner_categories" />
+                <ul>
+                  <li>
+                    NIM
+                    <span style="display: inline-block;margin-left: 16px;"></span>
+                    :
+                    <field name="nim" />
+                  </li>
+                  <li>
+                    Jurusan
+                    <span style="tab-size: 2;"></span>
+                    :
+                    <field name="jurusan" />
+                  </li>
+                </ul>
+                <div class="o_row">
+                  <span class="oe_kanban_partner_links" />
+                </div>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
   <!-- interndata.mahasiswa action window -->
   <record id="interndata_mahasiswa_action" model="ir.actions.act_window">
     <field name="name">Daftar Mahasiswa</field>
     <field name="type">ir.actions.act_window</field>
     <field name="res_model">interndata.mahasiswa</field>
-    <field name="view_mode">tree,form</field>
+    <field name="view_mode">tree,form,kanban</field>
   </record>
   <!-- This Menu Item must have a parent and an action -->
   <menuitem id="interndata_mahasiswa_menu_act" name="Mahasiswa" parent="interndata_menu_root" action="interndata_mahasiswa_action" sequence="10" />
