@@ -2,3 +2,4 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_interndata_program,interndata.program,model_interndata_program,,1,1,1,1
 access_interndata_mahasiswa,interndata.mahasiswa,model_interndata_mahasiswa,,1,1,1,1
 access_interndata_perusahaan,interndata.perusahaan,model_interndata_perusahaan,,1,1,1,1
+access_interndata_universitas,interndata.universitas,model_interndata_universitas,,1,1,1,1

@@ -10,10 +10,9 @@
         <field name="name" />
         <field name="nim" />
         <field name="jurusan" />
-        <field name="universitas"/>
-        <field name="program_id"/>
-        <field name="perusahaan_id"/>
-        <field name="mobile"/>
+        <field name="universitas_id" />
+        <field name="program_id" />
+        <field name="perusahaan_id" />
       </tree>
     </field>
   </record>
@@ -29,11 +28,12 @@
             <field name="name" />
             <field name="nim" />
             <field name="jurusan" />
-            <field name="universitas"/>
-            <field name="mobile"/>
           </group>
           <group name="program" string="Program">
             <field name="program_id" />
+          </group>
+          <group name="universitas" string="Universitas">
+            <field name="universitas_id" />
           </group>
           <group name="perusahaan" string="Perusahaan">
             <field name="perusahaan_id" />
@@ -50,5 +50,5 @@
     <field name="view_mode">tree,form</field>
   </record>
   <!-- This Menu Item must have a parent and an action -->
-  <menuitem id="interndata_mahasiswa_menu_act" name="Mahasiswa" parent="interndata_menu_root" action="interndata_mahasiswa_action" sequence="10"/>
+  <menuitem id="interndata_mahasiswa_menu_act" name="Mahasiswa" parent="interndata_menu_root" action="interndata_mahasiswa_action" sequence="10" />
 </odoo>

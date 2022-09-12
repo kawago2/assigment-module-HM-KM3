@@ -5,3 +5,4 @@ from . import mahasiswa
 from . import program
 from . import perusahaan
 from . import karyawan
+from . import universitas
