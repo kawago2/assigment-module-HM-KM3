@@ -10,7 +10,7 @@
         <field name="name"/>
         <field name="alamat"/>
         <field name="no_telp"/>
-        <field name="mahasiswa_id" />
+        <field name="kuota" />
       </tree>
     </field>
   </record>
@@ -26,9 +26,10 @@
             <field name="name"/>
             <field name="alamat"/>
             <field name="no_telp"/>
+            <field name="kuota" />
           </group>
           <group name="daftar_mahasiswa" string="Daftar Mahasiswa">
-            <field name="mahasiswa_id" />
+            <field name="mahasiswa_id"  widget="one2many"/>
           </group>
         </sheet>
       </form>

@@ -2,4 +2,5 @@
 <odoo>
   <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
   <menuitem id="interndata_menu_root" name="Intern Data" sequence="10"/>
+
 </odoo>

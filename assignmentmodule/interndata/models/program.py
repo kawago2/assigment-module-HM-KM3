@@ -11,4 +11,6 @@ class Program(models.Model):
     mahasiswa_id = fields.One2many(
         comodel_name='interndata.mahasiswa',
         inverse_name='program_id',
-        string='Daftar Mahasiswa')
+        string='Daftar Mahasiswa',
+        readonly=True,
+    )
