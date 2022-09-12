@@ -12,5 +12,4 @@ class Program(models.Model):
         comodel_name='interndata.mahasiswa',
         inverse_name='program_id',
         string='Daftar Mahasiswa',
-        readonly=True,
     )

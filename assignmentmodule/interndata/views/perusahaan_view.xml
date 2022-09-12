@@ -7,9 +7,9 @@
     <field name="arch" type="xml">
       <tree>
         <!-- Add your fields here -->
-        <field name="name"/>
-        <field name="alamat"/>
-        <field name="no_telp"/>
+        <field name="name" />
+        <field name="alamat" />
+        <field name="no_telp" />
         <field name="kuota" />
       </tree>
     </field>
@@ -23,13 +23,14 @@
         <sheet>
           <group>
             <!-- Add your fields here -->
-            <field name="name"/>
-            <field name="alamat"/>
-            <field name="no_telp"/>
+
+            <field name="name" />
+            <field name="alamat" />
+            <field name="no_telp" />
             <field name="kuota" />
           </group>
           <group name="daftar_mahasiswa" string="Daftar Mahasiswa">
-            <field name="mahasiswa_id"  widget="one2many"/>
+            <field name="mahasiswa_id" widget="one2many_tags" readonly='True' />
           </group>
         </sheet>
       </form>
@@ -43,5 +44,5 @@
     <field name="view_mode">tree,form</field>
   </record>
   <!-- This Menu Item must have a parent and an action -->
-  <menuitem id="interndata_perusahaan_menu_act" name="Perusahaan" parent="interndata_menu_root" action="interndata_perusahaan_action" sequence="30"/>
+  <menuitem id="interndata_perusahaan_menu_act" name="Perusahaan" parent="interndata_menu_root" action="interndata_perusahaan_action" sequence="30" />
 </odoo>

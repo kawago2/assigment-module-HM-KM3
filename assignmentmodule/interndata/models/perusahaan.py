@@ -14,6 +14,5 @@ class Perusahaan(models.Model):
         'interndata.mahasiswa',
         'perusahaan_id',
         string='Daftar Mahasiswa',
-        readonly=True,
     )
     

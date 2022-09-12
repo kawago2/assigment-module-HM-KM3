@@ -6,12 +6,19 @@ class DaftarMahasiswa(models.Model):
     # _inherit = ['res.partner', ]
     _description = 'Model untuk daftar mahasiswa'
 
-    name = fields.Char(string='Nama Mahasiswa', required=True)
-    jurusan = fields.Char(string='Jurusan', required=True)
-    nim = fields.Char(string='NIM', required=True, size=20)
+    name = fields.Char(string='Nama Mahasiswa')
+    jurusan = fields.Char(string='Jurusan')
+    nim = fields.Char(string='NIM', size=20)
+    jenis_kelamin = fields.Selection(
+        [
+            ('Laki-laki', 'Laki-laki'),
+            ('Perempuan', 'Perempuan'),
+        ],
+        string='Jenis Kelamin',
+        required=True,
+    )
 
-    program_id = fields.Many2one(
-        comodel_name='interndata.program', string='Program', ondelete='cascade')
+    program_id = fields.Many2many('interndata.program', string='program')
 
     perusahaan_id = fields.Many2one(
         string='Perusahaan',
@@ -46,3 +53,25 @@ class DaftarMahasiswa(models.Model):
             ob.kuota += 1
             print('ini kouta', ob.kuota)
         print('Kuota bertambah')
+
+    def write(self, vals):
+        for x in self:
+            obj_now = self.env['interndata.perusahaan'].search(
+                [('id', '=', x.perusahaan_id.id)])
+            print('debug', obj_now)
+
+            for a in obj_now:
+                a.kuota += 1
+
+        x = super(DaftarMahasiswa, self).write(vals)
+
+        for x in self:
+            obj_after = self.env['interndata.perusahaan'].search(
+                [('id', '=', x.perusahaan_id.id)])
+            print(obj_now)
+            print(obj_after)
+
+            for a in obj_after:
+                a.kuota -= 1
+
+        return x

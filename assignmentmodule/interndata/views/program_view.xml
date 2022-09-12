@@ -25,7 +25,7 @@
             <field name="kode_program" />
           </group>
           <group name="daftar_mahasiswa" string="Daftar Mahasiswa">
-            <field name="mahasiswa_id" />
+            <field name="mahasiswa_id" readonly="1" />
           </group>
         </sheet>
       </form>

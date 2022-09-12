@@ -10,6 +10,7 @@
         <field name="name" />
         <field name="nim" />
         <field name="jurusan" />
+        <field name="jenis_kelamin" />
         <field name="universitas_id" />
         <field name="program_id" />
         <field name="perusahaan_id" />
@@ -25,9 +26,10 @@
         <sheet>
           <group name="mahasiswa" string="Mahasiswa">
             <!-- Add your fields here -->
-            <field name="name" />
-            <field name="nim" />
-            <field name="jurusan" />
+            <field name="name" required="1" />
+            <field name="nim" required="1" />
+            <field name="jurusan" required="1" />
+            <field name="jenis_kelamin" required="1" />
           </group>
           <group name="program" string="Program">
             <field name="program_id" />

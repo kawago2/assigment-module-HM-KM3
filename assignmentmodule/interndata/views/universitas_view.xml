@@ -10,7 +10,7 @@
         <field name="name" />
         <field name="alamat" />
         <field name="no_telp" />
-        <field name="mahasiswa_id" />
+        <field name="mahasiswa_id" readonly="1" />
       </tree>
     </field>
   </record>
