@@ -28,6 +28,7 @@
             <field name="alamat" />
             <field name="no_telp" />
             <field name="kuota" />
+            <field name="total_kuota"/>
           </group>
           <group name="daftar_mahasiswa" string="Daftar Mahasiswa">
             <field name="mahasiswa_id" widget="one2many_tags" readonly='True' />

@@ -11,6 +11,16 @@
     <field name="binding_model_id" ref="model_interndata_mahasiswa" />
     <field name="binding_type">report</field>
   </record>
+  <!-- Report Perusahaan -->
+  <record id="report_perusahaan_xlsx" model="ir.actions.report">
+    <field name="name">Perusahaan Excel</field>
+    <field name="model">interndata.perusahaan</field>
+    <field name="report_type">xlsx</field>
+    <field name="report_name">interndata.report_perusahaan_xlsx</field>
+    <field name="report_file">interndata.report_perusahaan_xlsx</field>
+    <field name="binding_model_id" ref="model_interndata_perusahaan" />
+    <field name="binding_type">report</field>
+  </record>
   <record id="report_interndata_mahasiswa_pdf" model="ir.actions.report">
     <field name="name">Template SR</field>
     <field name="model">interndata.mahasiswa</field>

@@ -8,7 +8,8 @@ class Perusahaan(models.Model):
     name = fields.Char(string='Nama Perusahaan')
     alamat = fields.Char(string='Alamat')
     no_telp = fields.Char(string='No. Telp')
-    kuota = fields.Integer(string='Kuota')
+    kuota = fields.Integer(string='Kuota Sisa')
+    total_kuota = fields.Integer(string='Total Kuota')
 
     mahasiswa_id = fields.One2many(
         'interndata.mahasiswa',
