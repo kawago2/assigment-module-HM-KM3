@@ -14,3 +14,11 @@ class Universitas(models.Model):
         'universitas_id',
         string='Daftar Mahasiswa',
     )
+
+    total_mahasiswa = fields.Integer()
+
+    # @api.onchange('mahasiswa_id')
+    # def on_change_mahasiswa(self):
+    #     a = self.env['interndata.perusahaan'].search(
+    #         [('id', '=', self.mahasiswa_id.id)])
+    #     self.total_mahasiswa = len(a)

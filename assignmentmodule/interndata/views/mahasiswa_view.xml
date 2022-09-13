@@ -12,9 +12,9 @@
         <field name="jurusan" />
         <field name="daerah_asal" />
         <field name="jenis_kelamin" />
-        <field name="universitas_id" />
-        <field name="program_id" />
-        <field name="perusahaan_id" />
+        <field name="universitas_id" widget="many2one_tags" />
+        <field name="program_id" widget="many2many_tags" />
+        <field name="perusahaan_id" widget="many2one_tags" />
       </tree>
     </field>
   </record>

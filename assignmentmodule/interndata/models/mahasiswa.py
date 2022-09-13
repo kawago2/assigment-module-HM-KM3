@@ -48,17 +48,27 @@ class DaftarMahasiswa(models.Model):
                 [('id', '=', line.perusahaan_id.id)]
             ).write({'kuota': line.perusahaan_id.kuota - 1})
 
+            self.env['interndata.universitas'].search(
+                [('id', '=', line.universitas_id.id)]).write(
+                    {'total_mahasiswa': line.universitas_id.total_mahasiswa + 1})
+
         return line
 
     @api.ondelete(at_uninstall=False)
     def _ondelete_mahasiswa(self):
+        for xx in self:
+            ew = self.env['interndata.universitas'].search(
+                [('id', '=', xx.universitas_id.id)])
+            for apo in ew:
+                apo.total_mahasiswa -= 1
+
         b = []
         for a in self:
             b = self.env['interndata.perusahaan'].search(
                 [('id', '=', a.perusahaan_id.id)])
-        for ob in b:
-            ob.kuota += 1
-            print('ini kouta', ob.kuota)
+            for ob in b:
+                ob.kuota += 1
+                print('ini kouta', ob.kuota)
         print('Kuota bertambah')
 
     def write(self, vals):
@@ -70,7 +80,15 @@ class DaftarMahasiswa(models.Model):
             for a in obj_now:
                 a.kuota += 1
 
+        for y in self:
+            onfix = self.env['interndata.universitas'].search(
+                [('id', '=', y.universitas_id.id)])
+
+            for data in onfix:
+                data.total_mahasiswa -= 1
+
         x = super(DaftarMahasiswa, self).write(vals)
+        y = super(DaftarMahasiswa, self).write(vals)
 
         for x in self:
             obj_after = self.env['interndata.perusahaan'].search(
@@ -81,4 +99,16 @@ class DaftarMahasiswa(models.Model):
             for a in obj_after:
                 a.kuota -= 1
 
+        for y in self:
+            onafter = self.env['interndata.universitas'].search(
+                [('id', '=', y.universitas_id.id)])
+
+            for data in onafter:
+                data.total_mahasiswa += 1
+
         return x
+
+    @api.onchange('universitas_id')
+    def __onchange_total(self):
+        self.universitas_id.total_mahasiswa = len(
+            self.universitas_id.mahasiswa_id)
