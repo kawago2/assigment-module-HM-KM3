@@ -25,7 +25,7 @@ class DaftarMahasiswa(models.Model):
         required=True,
     )
 
-    program_id = fields.Many2many('interndata.program', string='program')
+    program_id = fields.Many2many('interndata.program', string='Program')
 
     perusahaan_id = fields.Many2one(
         string='Perusahaan',

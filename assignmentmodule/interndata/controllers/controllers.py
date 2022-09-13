@@ -2,6 +2,7 @@
 from odoo import http, models, fields
 from odoo.http import request
 import json
+import base64
 
 
 class Interndata(http.Controller):
@@ -108,3 +109,4 @@ class Interndata(http.Controller):
 
                 })
         return json.dumps(datas)
+
