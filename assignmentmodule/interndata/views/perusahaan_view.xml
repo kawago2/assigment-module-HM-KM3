@@ -9,7 +9,7 @@
         <!-- Add your fields here -->
         <field name="name" />
         <field name="alamat" />
-        <field name="no_telp" />
+        <field name="no_telp" widget="phone" />
         <field name="kuota" />
       </tree>
     </field>

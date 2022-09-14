@@ -5,7 +5,7 @@
     <field name="name">Daftar Mahasiswa</field>
     <field name="model">interndata.mahasiswa</field>
     <field name="arch" type="xml">
-      <tree decoration-info="state == 'draft'" decoration-danger="state == 'cancelled'" decoration-success="state == 'done'" decoration-warning="state == 'confirm'">
+      <tree>
         <!-- Add your fields here -->
         <field name="name" />
         <field name="nim" />
@@ -15,7 +15,7 @@
         <field name="universitas_id" widget="many2one_tags" />
         <field name="program_id" widget="many2one_tags" />
         <field name="perusahaan_id" widget="many2one_tags" />
-        <field name="state" />
+        <field name="state" decoration-info="state == 'draft'" decoration-danger="state == 'cancelled'" decoration-success="state == 'done'" decoration-warning="state == 'confirm'" widget="badge" />
       </tree>
     </field>
   </record>
@@ -36,6 +36,8 @@
 
         </header>
         <sheet>
+          <widget name="web_ribbon" text="LOLOS" bg_color="bg-success" attrs="{'invisible' : [('state', '!=','done')]}" />
+          <widget name="web_ribbon" text="TIDAK LOLOS" bg_color="bg-danger" attrs="{'invisible' : [('state', '!=','cancelled')]}" />
           <group attrs="{'readonly' : [('state', '!=','draft')]}">
             <group name="mahasiswa" string="Mahasiswa">
               <!-- Add your fields here -->
