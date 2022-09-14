@@ -27,12 +27,12 @@ class DaftarMahasiswa(models.Model):
     )
 
     state = fields.Selection(string="Seleksi", selection=[
-        ('draft', 'Administrasi'),
-        ('confirm', 'Interview'),
-        ('done', 'Lolos'),
-        ('cancelled', 'Tidak Lolos'),
+        ('administrasi', 'Administrasi'),
+        ('interview', 'Interview'),
+        ('lolos', 'Lolos'),
+        ('tidak lolos', 'Tidak Lolos'),
     ],
-        default='draft',
+        default='administrasi',
         required=True,
         readonly=True,
     )
@@ -55,9 +55,9 @@ class DaftarMahasiswa(models.Model):
     @api.constrains('semester')
     def _check_semester(self):
         for record in self:
-            if record.semester >= 8:
+            if record.semester > 9:
                 raise UserError(
-                    'Semester tidak boleh lebih dari sama dengan 8')
+                    'Semester tidak boleh lebih dari 9')
 
     @api.model
     def create(self, vals):
@@ -132,14 +132,14 @@ class DaftarMahasiswa(models.Model):
         self.universitas_id.total_mahasiswa = len(
             self.universitas_id.mahasiswa_id)
 
-    def action_confirm(self):
-        self.write({'state': 'confirm'})
+    def action_interview(self):
+        self.write({'state': 'interview'})
 
-    def action_done(self):
-        self.write({'state': 'done'})
+    def action_lolos(self):
+        self.write({'state': 'lolos'})
 
-    def action_cancelled(self):
-        self.write({'state': 'cancelled'})
+    def action_tidak_lolos(self):
+        self.write({'state': 'tidak lolos'})
 
-    def action_draft(self):
-        self.write({'state': 'draft'})
+    def action_administrasi(self):
+        self.write({'state': 'administrasi'})

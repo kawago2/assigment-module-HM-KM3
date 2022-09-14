@@ -21,6 +21,7 @@ class MahasiswaExcel(models.AbstractModel):
         sheet.write(1, 5, 'Perusahaan', bold)
         sheet.write(1, 6, 'Program', bold)
         sheet.write(1, 7, 'Universitas', bold)
+        sheet.write(1, 8, 'Seleksi', bold)
 
         row = 2
         col = 0

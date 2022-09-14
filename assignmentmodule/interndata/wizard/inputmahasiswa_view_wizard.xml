@@ -9,7 +9,7 @@
         <sheet>
           <group>
             <!-- Add your fields here -->
-            <field name="mahasiswa_id" domain="[('state', '=', 'draft')]"/>
+            <field name="mahasiswa_id" domain="[('state', '=', 'administrasi')]"/>
             <field name="program_id" />
             <field name="perusahaan_id" />
             <field name="universitas_id"/>

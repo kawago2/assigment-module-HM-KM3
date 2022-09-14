@@ -15,7 +15,7 @@
         <field name="universitas_id" widget="many2one_tags" />
         <field name="program_id" widget="many2one_tags" />
         <field name="perusahaan_id" widget="many2one_tags" />
-        <field name="state" decoration-info="state == 'draft'" decoration-danger="state == 'cancelled'" decoration-success="state == 'done'" decoration-warning="state == 'confirm'" widget="badge" />
+        <field name="state" decoration-info="state == 'administrasi'" decoration-danger="state == 'tidak lolos'" decoration-success="state == 'lolos'" decoration-warning="state == 'interview'" widget="badge" />
       </tree>
     </field>
   </record>
@@ -28,34 +28,34 @@
         <header>
           <button string="Input Mahasiswa" name="%(interndata.interndata_inputmahasiswa_action)d" type="action" class="btn btn-primary my-3" />
 
-          <button name="action_confirm" string="Lanjut" style="background-color:white;" type="object" states="draft" />
-          <button name="action_done" string="Lolos" type="object" style="background-color:#77dd77;color:white; " states="confirm" />
-          <button name="action_draft" string="Reset" type="object" class="btn btn-secondary" states="cancelled" confirm="Anda yakin reset ulang tahap seleksi?" />
-          <button name="action_cancelled" string="Tidak Lolos" type="object" class="btn btn-danger" states="confirm" confirm="Anda yakin mahasiswa ini tidak lolos seleksi?" />
-          <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done" />
+          <button name="action_interview" string="Lanjut" style="background-color:white;" type="object" states="administrasi" />
+          <button name="action_lolos" string="Lolos" type="object" style="background-color:#77dd77;color:white; " states="interview" />
+          <button name="action_administrasi" string="Reset" type="object" class="btn btn-secondary" states="tidak lolos" confirm="Anda yakin reset ulang tahap seleksi?" />
+          <button name="action_tidak_lolos" string="Tidak Lolos" type="object" class="btn btn-danger" states="interview" confirm="Anda yakin mahasiswa ini tidak lolos seleksi?" />
+          <field name="state" widget="statusbar" statusbar_visible="administrasi,interview,lolos" />
 
         </header>
         <sheet>
-          <widget name="web_ribbon" text="LOLOS" bg_color="bg-success" attrs="{'invisible' : [('state', '!=','done')]}" />
-          <widget name="web_ribbon" text="TIDAK LOLOS" bg_color="bg-danger" attrs="{'invisible' : [('state', '!=','cancelled')]}" />
-          <group attrs="{'readonly' : [('state', '!=','draft')]}">
+          <widget name="web_ribbon" text="LOLOS" bg_color="bg-success" attrs="{'invisible' : [('state', '!=','lolos')]}" />
+          <widget name="web_ribbon" text="TIDAK LOLOS" bg_color="bg-danger" attrs="{'invisible' : [('state', '!=','tidak lolos')]}" />
+          <group attrs="{'readonly' : [('state', '!=','administrasi')]}">
             <group name="mahasiswa" string="Mahasiswa">
               <!-- Add your fields here -->
-              <field name="name" required="1" attrs="{'readonly' : [('state', '!=','draft')]}" />
-              <field name="nim" required="1" attrs="{'readonly' : [('state', '!=','draft')]}" />
-              <field name="jurusan" required="1" attrs="{'readonly' : [('state', '!=','draft')]}" />
-              <field name="daerah_asal" required="1" attrs="{'readonly' : [('state', '!=','draft')]}" />
-              <field name="kepala_jurusan" required="1" attrs="{'readonly' : [('state', '!=','draft')]}" />
-              <field name="jenis_kelamin" required="1" attrs="{'readonly' : [('state', '!=','draft')]}" />
-              <field name="semester" required="1" attrs="{'readonly' : [('state', '!=','draft')]}" />
-              <field name="ipk" required="1" attrs="{'readonly' : [('state', '!=','draft')]}" />
-              <field name="jumlah_sks" required="1" attrs="{'readonly' : [('state', '!=','draft')]}" />
+              <field name="name" required="1" attrs="{'readonly' : [('state', '!=','administrasi')]}" />
+              <field name="nim" required="1" attrs="{'readonly' : [('state', '!=','administrasi')]}" />
+              <field name="jurusan" required="1" attrs="{'readonly' : [('state', '!=','administrasi')]}" />
+              <field name="daerah_asal" required="1" attrs="{'readonly' : [('state', '!=','administrasi')]}" />
+              <field name="kepala_jurusan" required="1" attrs="{'readonly' : [('state', '!=','administrasi')]}" />
+              <field name="jenis_kelamin" required="1" attrs="{'readonly' : [('state', '!=','administrasi')]}" />
+              <field name="semester" required="1" attrs="{'readonly' : [('state', '!=','administrasi')]}" />
+              <field name="ipk" required="1" attrs="{'readonly' : [('state', '!=','administrasi')]}" />
+              <field name="jumlah_sks" required="1" attrs="{'readonly' : [('state', '!=','administrasi')]}" />
             </group>
             <group name="-" string="-">
-              <field name="avatar" widget="image" class="oe_avatar" attrs="{'readonly' : [('state', '!=','draft')]}" />
-              <field name="universitas_id" attrs="{'readonly' : [('state', '!=','draft')]}" />
-              <field name="perusahaan_id" attrs="{'readonly' : [('state', '!=','draft')]}" />
-              <field name="program_id" attrs="{'readonly' : [('state', '!=','draft')]}" />
+              <field name="avatar" widget="image" class="oe_avatar" attrs="{'readonly' : [('state', '!=','administrasi')]}" />
+              <field name="universitas_id" attrs="{'readonly' : [('state', '!=','administrasi')]}" />
+              <field name="perusahaan_id" attrs="{'readonly' : [('state', '!=','administrasi')]}" />
+              <field name="program_id" attrs="{'readonly' : [('state', '!=','administrasi')]}" />
             </group>
           </group>
         </sheet>
