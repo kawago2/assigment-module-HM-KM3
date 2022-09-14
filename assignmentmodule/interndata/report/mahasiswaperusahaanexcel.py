@@ -46,7 +46,7 @@ class PerusahaanExcel(models.AbstractModel):
                 sheet.write(row, col + 10, y.daerah_asal)
                 sheet.write(row, col + 9, y.semester)
                 sheet.write(row, col + 11, y.universitas_id.name)
-                sheet.write(row, col + 12, y.state)  # noqa
+                sheet.write(row, col + 12, y.state.capitalize())  # noqa
                 sheet.set_column(row, col, 20)
                 count += 1
                 row += 1

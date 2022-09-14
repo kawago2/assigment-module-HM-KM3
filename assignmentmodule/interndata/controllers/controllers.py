@@ -2,12 +2,11 @@
 from odoo import http, models, fields
 from odoo.http import request
 import json
-import base64
 
 
 class Interndata(http.Controller):
     @http.route('/interndata/getmahasiswa', auth='public', method=['GET'])
-    def getMahasiswa(self, **kw):
+    def getmahasiswa(self, **kw):
         mahasiswa = request.env['interndata.mahasiswa'].search([])
         datas = []
 
@@ -35,7 +34,7 @@ class Interndata(http.Controller):
         return json.dumps(datas)
 
     @http.route('/interndata/getprogram', auth='public', method=['GET'])
-    def getProgram(self, **kw):
+    def getprogram(self, **kw):
         program = request.env['interndata.program'].search([])
         datas = []
 
@@ -47,7 +46,7 @@ class Interndata(http.Controller):
         return json.dumps(datas)
 
     @http.route('/interndata/getperusahaan', auth='public', method=['GET'])
-    def getPerusahaan(self, **kw):
+    def getperusahaan(self, **kw):
         perusahaan = request.env['interndata.perusahaan'].search([])
         datas = []
 
@@ -71,7 +70,7 @@ class Interndata(http.Controller):
         return json.dumps(datas)
 
     @http.route('/interndata/getuniversitas', auth='public', method=['GET'])
-    def getUniversitas(self, **kw):
+    def getuniversitas(self, **kw):
         universitas = request.env['interndata.universitas'].search([])
         datas = []
 
@@ -94,7 +93,7 @@ class Interndata(http.Controller):
         return json.dumps(datas)
 
     @http.route('/interndata/getkaryawan', auth='public', method=['GET'])
-    def getUniversitas(self, **kw):
+    def getkaryawan(self, **kw):
         karyawan = request.env['res.partner'].search([])
         datas = []
 
@@ -109,4 +108,3 @@ class Interndata(http.Controller):
 
                 })
         return json.dumps(datas)
-
