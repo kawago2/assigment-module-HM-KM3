@@ -3,12 +3,12 @@
   <template id="report_interndata_mahasiswa_pdf">
     <t t-call="web.html_container">
       <t t-call="web.external_layout">
-        <div class="page">
-          <img src="https://www.hashmicro.com/id/blog/wp-content/uploads/2021/05/hashmicro-squarelogo-800x800-1.png" height="300px" style="display: block;margin-left: auto;margin-right: auto;"></img>
-          <h2>
-            <b>Surat Rekomendasi Universitas</b>
-          </h2>
-          <t t-foreach="docs" t-as="o">
+        <t t-foreach="docs" t-as="o">
+          <div class="page">
+            <img src="https://www.hashmicro.com/id/blog/wp-content/uploads/2021/05/hashmicro-squarelogo-800x800-1.png" height="300px" style="display: block;margin-left: auto;margin-right: auto;"></img>
+            <h2>
+              <b>Surat Rekomendasi Universitas</b>
+            </h2>
             <div class="row">
               <div class="col-4">Nama </div>
               <div class="col-8">
@@ -55,7 +55,7 @@
               <div class="col-4">Program yang diikuti </div>
               <div class="col-8">
                 :
-                <span t-field="o.program_id[0].name" />
+                <span t-field="o.program_id.name" />
               </div>
             </div>
             <div class="row">
@@ -107,19 +107,12 @@
                   <span t-field="o.kepala_jurusan" />
                 </td>
               </tr>
-
             </table>
-
-            <!-- <t t-foreach="o.program_id" t-as="d">
-              <div class="row">
-                <div class="col-4">Jenis Kelamin :</div>
-                <div class="col-8">
-                  <span t-field="d.name" />
-                </div>
-              </div>
-            </t> -->
-          </t>
-        </div>
+            <div style="page-break-before: always;">
+              ...
+            </div>
+          </div>
+        </t>
       </t>
     </t>
   </template>

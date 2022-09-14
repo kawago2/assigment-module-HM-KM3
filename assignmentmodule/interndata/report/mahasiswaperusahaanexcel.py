@@ -13,42 +13,44 @@ class PerusahaanExcel(models.AbstractModel):
         bold = workbook.add_format({'bold': True})
         # format
         sheet.write(0, 0, str(self.tanggal_cetak), bold)
-        sheet.write(1, 0, 'Nama Perusahaan', bold)
-        sheet.write(2, 0, 'Alamat', bold)
-        sheet.write(3, 0, 'No. Telp', bold)
-        sheet.write(4, 0, 'Total Kuota', bold)
+        sheet.write(1, 1, 'Nama Perusahaan', bold)
+        sheet.write(1, 2, 'Alamat', bold)
+        sheet.write(1, 3, 'No. Telp', bold)
+        sheet.write(1, 4, 'Total Kuota', bold)
+        sheet.write(1, 5, 'No', bold)
+        sheet.write(1, 6, 'Nama Mahasiswa', bold)
+        sheet.write(1, 7, 'Jurusan', bold)
+        sheet.write(1, 8, 'NIM', bold)
+        sheet.write(1, 9, 'Jenis Kelamin', bold)
+        sheet.write(1, 10, 'Semester', bold)
+        sheet.write(1, 11, 'Daerah Asal', bold)
+        sheet.write(1, 12, 'Universitas', bold)
+        sheet.write(1, 13, 'Seleksi', bold)
 
-        col = 1
+        row = 2
         for x in perusahaan:
-            row = 1
-            sheet.write(row, col, x.name)
-            sheet.write(row + 1, col, x.alamat)
-            sheet.write(row + 2, col, x.no_telp)
-            sheet.write(row + 3, col, x.total_kuota)
-
-        
-        sheet.write(6, 1, 'No', bold)
-        sheet.write(6, 2, 'Nama Mahasiswa', bold)
-        sheet.write(6, 3, 'Jurusan', bold)
-        sheet.write(6, 4, 'NIM', bold)
-        sheet.write(6, 5, 'Jenis Kelamin', bold)
-        sheet.write(6, 6, 'Semester', bold)
-        sheet.write(6, 7, 'Daerah Asal', bold)
-        # sheet.write(6, 8, 'Universitas', bold)
-        
-        
-        row = 7
-        col = 1
-        count = 1
-
-        for x in perusahaan.mahasiswa_id:
             col = 1
-            sheet.write(row, col, count)
-            sheet.write(row, col + 1, x.name)
-            sheet.write(row, col + 2, x.jurusan)
-            sheet.write(row, col + 3, x.nim)
-            sheet.write(row, col + 4, x.jenis_kelamin)
-            sheet.write(row, col + 5, x.semester)
-            sheet.write(row, col + 6, x.daerah_asal)
-            count += 1
+            sheet.write(row, col, x.name)
+            sheet.write(row, col+1, x.alamat)
+            sheet.write(row, col+2, x.no_telp)
+            sheet.write(row, col+3, x.total_kuota)
+            sheet.set_column(row, col, 20)
+
+            count = 1
+            for y in x.mahasiswa_id:
+                sheet.write(row, col + 5, y.name)
+                sheet.write(row, col + 4, count)
+                sheet.write(row, col + 6, y.jurusan)
+                sheet.write(row, col + 7, y.nim)
+                sheet.write(row, col + 8, y.jenis_kelamin)
+                sheet.write(row, col + 10, y.daerah_asal)
+                sheet.write(row, col + 9, y.semester)
+                sheet.write(row, col + 11, y.universitas_id.name)
+                sheet.write(row, col + 12, y.state.selection)  # noqa
+                sheet.set_column(row, col, 20)
+                count += 1
+                row += 1
+
             row += 1
+
+        sheet.set_column(row, col, 20)
