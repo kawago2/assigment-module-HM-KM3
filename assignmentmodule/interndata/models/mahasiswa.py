@@ -1,4 +1,5 @@
 from odoo import api, fields, models
+from odoo.exceptions import ValidationError, UserError
 
 
 class DaftarMahasiswa(models.Model):
@@ -13,7 +14,7 @@ class DaftarMahasiswa(models.Model):
     nim = fields.Char(string='NIM', size=20)
     daerah_asal = fields.Char(string='Daerah Asal')
     kepala_jurusan = fields.Char(string='Kepala Jurusan')
-    semester = fields.Char(string='Semester')
+    semester = fields.Integer(string='Semester')
     ipk = fields.Float(string='IPK')
     jumlah_sks = fields.Integer(string='Jumlah SKS')
     jenis_kelamin = fields.Selection(
@@ -23,6 +24,17 @@ class DaftarMahasiswa(models.Model):
         ],
         string='Jenis Kelamin',
         required=True,
+    )
+
+    state = fields.Selection(string="Seleksi", selection=[
+        ('draft', 'Administrasi'),
+        ('confirm', 'Interview'),
+        ('done', 'Lolos'),
+        ('cancelled', 'Tidak Lolos'),
+    ],
+        default='draft',
+        required=True,
+        readonly=True,
     )
 
     program_id = fields.Many2one('interndata.program', string='Program')
@@ -39,6 +51,13 @@ class DaftarMahasiswa(models.Model):
     _sql_constraints = [
         ('nim_mahasiswa_unik', 'UNIQUE (nim)', 'NIM mahasiswa tidak boleh sama'),
     ]
+
+    @api.constrains('semester')
+    def _check_semester(self):
+        for record in self:
+            if record.semester >= 8:
+                raise UserError(
+                    'Semester tidak boleh lebih dari sama dengan 8')
 
     @api.model
     def create(self, vals):
@@ -112,3 +131,15 @@ class DaftarMahasiswa(models.Model):
     def __onchange_total(self):
         self.universitas_id.total_mahasiswa = len(
             self.universitas_id.mahasiswa_id)
+
+    def action_confirm(self):
+        self.write({'state': 'confirm'})
+
+    def action_done(self):
+        self.write({'state': 'done'})
+
+    def action_cancelled(self):
+        self.write({'state': 'cancelled'})
+
+    def action_draft(self):
+        self.write({'state': 'draft'})

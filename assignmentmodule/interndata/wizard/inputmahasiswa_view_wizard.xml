@@ -9,10 +9,10 @@
         <sheet>
           <group>
             <!-- Add your fields here -->
-            <field name="mahasiswa_id"  />
-            <field name="program_id"/>
-            <field name="perusahaan_id"  />
-            <field name="universitas_id" widget="many2one_tags" />
+            <field name="mahasiswa_id" domain="[('state', '=', 'draft')]"/>
+            <field name="program_id" />
+            <field name="perusahaan_id" />
+            <field name="universitas_id"/>
             
           </group>
           <footer>

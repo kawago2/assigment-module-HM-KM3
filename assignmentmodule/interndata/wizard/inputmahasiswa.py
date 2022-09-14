@@ -17,6 +17,10 @@ class InputMahasiswa(models.TransientModel):
         comodel_name='interndata.mahasiswa', string='Nama Mahasiswa', required=True)
 
     def button_input_mahasiswa(self):
+        # filter = []
+        # mahasiswa_id = self.mahasiswa_id
+        # if mahasiswa_id:
+        #     filter += [('state', '=', mahasiswa_id.state)]
         for x in self:
             obj_id = self.env['interndata.program'].search(
                 [('id', '=', x.program_id.id)])
