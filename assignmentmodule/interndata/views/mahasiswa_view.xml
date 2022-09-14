@@ -13,7 +13,7 @@
         <field name="daerah_asal" />
         <field name="jenis_kelamin" />
         <field name="universitas_id" widget="many2one_tags" />
-        <field name="program_id" widget="many2many_tags" />
+        <field name="program_id" widget="many2one_tags" />
         <field name="perusahaan_id" widget="many2one_tags" />
       </tree>
     </field>
@@ -24,6 +24,9 @@
     <field name="model">interndata.mahasiswa</field>
     <field name="arch" type="xml">
       <form string="Data Mahasiswa">
+        <header>
+          <button string="Input Mahasiswa" name="%(interndata.interndata_inputmahasiswa_action)d" type="action" class="btn btn-primary my-3" />
+        </header>
         <sheet>
           <group>
             <group name="mahasiswa" string="Mahasiswa">
@@ -42,10 +45,8 @@
               <field name="avatar" widget="image" class="oe_avatar" />
               <field name="universitas_id" />
               <field name="perusahaan_id" />
+              <field name="program_id" />
             </group>
-          </group>
-          <group name="Program" string="Program">
-            <field name="program_id" />
           </group>
         </sheet>
       </form>

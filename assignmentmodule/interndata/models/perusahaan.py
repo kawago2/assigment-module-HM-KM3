@@ -16,3 +16,4 @@ class Perusahaan(models.Model):
         'perusahaan_id',
         string='Daftar Mahasiswa',
     )
+    

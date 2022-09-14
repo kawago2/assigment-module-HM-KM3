@@ -8,7 +8,6 @@
       <tree>
         <!-- Add your fields here -->
         <field name="name" />
-        <field name="kode_program" />
       </tree>
     </field>
   </record>
@@ -22,7 +21,6 @@
           <group>
             <!-- Add your fields here -->
             <field name="name" />
-            <field name="kode_program" />
           </group>
           <group name="daftar_mahasiswa" string="Daftar Mahasiswa">
             <field name="mahasiswa_id" readonly="1" />
@@ -39,5 +37,5 @@
     <field name="view_mode">tree,form</field>
   </record>
   <!-- This Menu Item must have a parent and an action -->
-  <menuitem id="interndata_program_menu_act" name="Program" parent="interndata_menu_root" action="interndata_program_action" sequence="20"/>
+  <menuitem id="interndata_program_menu_act" name="Program" parent="interndata_menu_root" action="interndata_program_action" sequence="20" />
 </odoo>

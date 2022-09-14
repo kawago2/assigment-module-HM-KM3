@@ -30,6 +30,7 @@ class MahasiswaExcel(models.AbstractModel):
             col = 0
             sheet.write(row, col, count)
             sheet.write(row, col + 1, x.name)
+            
             sheet.write(row, col + 2, x.jurusan)
             sheet.write(row, col + 3, x.nim)
             sheet.write(row, col + 4, x.jenis_kelamin)
@@ -37,9 +38,11 @@ class MahasiswaExcel(models.AbstractModel):
                 row, col + 5, x.perusahaan_id.name if bool(x.perusahaan_id.name) is True else '')  # noqa
             sheet.write(
                 row, col + 7, x.universitas_id.name if bool(x.universitas_id.name) is True else '')  # noqa
-            
+
             for y in x.program_id:
                 sheet.write(row, col + 6, y.name)
+                sheet.set_column(row, col, 20)
                 row += 1
             count += 1
             row += 1
+            sheet.set_column(row, col, 20)

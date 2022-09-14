@@ -25,6 +25,7 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'wizard/inputmahasiswa_view_wizard.xml',
         'report/report.xml',
         'report/print_sr_mahasiswa.xml',
         'views/menu.xml',

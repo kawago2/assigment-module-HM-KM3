@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <!-- interndata.inputmahasiswa form view -->
+  <record id="interndata_inputmahasiswa_view_form_wizard" model="ir.ui.view">
+    <field name="name">Input Mahasiswa</field>
+    <field name="model">interndata.inputmahasiswa</field>
+    <field name="arch" type="xml">
+      <form string="">
+        <sheet>
+          <group>
+            <!-- Add your fields here -->
+            <field name="mahasiswa_id"  />
+            <field name="program_id"/>
+            <field name="perusahaan_id"  />
+            <field name="universitas_id" widget="many2one_tags" />
+            
+          </group>
+          <footer>
+            <button name='button_input_mahasiswa' type='object' string='Simpan' class='btn btn-primary' />
+            <button string='Cancel' special='cancel' class='btn btn-danger' />
+          </footer>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <!-- interndata.inputmahasiswa action window -->
+  <record id="interndata_inputmahasiswa_action" model="ir.actions.act_window">
+    <field name="name">Input Mahasiswa</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">interndata.inputmahasiswa</field>
+    <field name="view_mode">tree,form</field>
+    <field name="view_id" ref='interndata_inputmahasiswa_view_form_wizard' />
+    <field name="target">new</field>
+  </record>
+
+  <!-- This Menu Item must have a parent and an action -->
+  <menuitem id="interndata_inputmahasiswa_menu_act" name="Input Mahasiswa" parent="interndata_menu_root" action="interndata_inputmahasiswa_action" sequence="70" />
+</odoo>
