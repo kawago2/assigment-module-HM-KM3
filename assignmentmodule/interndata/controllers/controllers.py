@@ -11,24 +11,16 @@ class Interndata(http.Controller):
         datas = []
 
         for data in mahasiswa:
-            obj1 = []
-            obj2 = []
-            for xx in data.program_id:
-                obj1.append({
-                    'name': xx.name,
-                })
-            for yy in data.perusahaan_id:
-                obj2.append({
-                    'name': yy.name,
-                })
 
             datas.append({
                 'nama': data.name,
                 'nim': data.nim,
                 'universitas': data.universitas_id.name if bool(data.universitas_id.name) is True else '-',
                 'jurusan': data.jurusan,
-                'program_id': obj1,
-                'perusahaan_id': obj2,
+                'program_id': data.program_id.name,
+                'perusahaan_id': data.perusahaan_id.name,
+                'img_url': f'/web/image?model=interndata.mahasiswa&id={data.id}&field=avatar',
+                'state': data.state,
             })
 
         return json.dumps(datas)
