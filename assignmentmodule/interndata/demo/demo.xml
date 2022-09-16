@@ -1,12 +1,106 @@
 <odoo>
-    <data>
-<!--
-          <record id="object0" model="interndata.interndata">
-            <field name="name">Object 0</field>
-            <field name="value">0</field>
-          </record>
+  <data>
 
-          <record id="object1" model="interndata.interndata">
+    <record id="id_program_1" model="interndata.program">
+      <field name="name">Magang</field>
+    </record>
+
+    <record id="id_program_2" model="interndata.program">
+      <field name="name">Studi Independen</field>
+    </record>
+
+    <record id="id_program_3" model="interndata.program">
+      <field name="name">Kampus Mengajar</field>
+    </record>
+
+    <record id="id_perusahaan_1" model="interndata.perusahaan">
+      <field name="name">PT. Hashmicro</field>
+      <field name="alamat">Sudirman Tower,25th Floor,Jl.Jend.Sudirman Kav .60,Jakarta Selatan</field>
+      <field name="no_telp">021-5226877</field>
+      <field name="total_kuota">60</field>
+    </record>
+    <record id="id_perusahaan_2" model="interndata.perusahaan">
+      <field name="name">PT. Cahaya Pelita Andika</field>
+      <field name="alamat">Central Plaza, 7th Floor, Jl.Jend.Sudirman Kav.47 Jakarta 12930</field>
+      <field name="no_telp">021-2521607</field>
+      <field name="total_kuota">100</field>
+    </record>
+    <record id="id_perusahaan_3" model="interndata.perusahaan">
+      <field name="name">PT. Batuna Negara</field>
+      <field name="alamat">Jl.Letkol Martinus Lubis,No.44 Medan,North Sumatra</field>
+      <field name="no_telp">021-6017996</field>
+      <field name="total_kuota">10</field>
+    </record>
+    <record id="id_universitas_1" model="interndata.universitas">
+      <field name="name">Universitas Diponegoro</field>
+      <field name="alamat">Jl. Prof Soedarto</field>
+      <field name="no_telp">021-5226877</field>
+    </record>
+
+    <record id="id_universitas_2" model="interndata.universitas">
+      <field name="name">Universitas Airlangga</field>
+      <field name="alamat">Jl. Jendral Sudirman</field>
+      <field name="no_telp">021-2521607</field>
+
+    </record>
+
+    <record id="id_universitas_3" model="interndata.universitas">
+      <field name="name">Universitas Indonesia</field>
+      <field name="alamat">Jl. Yos Sudarso</field>
+      <field name="no_telp">021-6017996</field>
+
+    </record>
+
+    <record id="demo_id_1" model="interndata.mahasiswa">
+      <field name="name">Devi</field>
+      <field name="nim">1111111</field>
+      <field name="jurusan">Sastra</field>
+      <field name="daerah_asal">Lombok</field>
+      <field name="ipk">3.33</field>
+      <field name="kepala_jurusan">Prof. blabla</field>
+      <field name="semester">7</field>
+      <field name="jenis_kelamin">Perempuan</field>
+      <field name="state">administrasi</field>
+      <field name="program_id" ref="interndata.id_program_1" />
+      <field name="perusahaan_id" ref="interndata.id_perusahaan_1" />
+      <field name="universitas_id" ref="interndata.id_universitas_1" />
+    </record>
+    <record id="demo_id_2" model="interndata.mahasiswa">
+      <field name="name">Angga</field>
+      <field name="nim">2222222</field>
+      <field name="jurusan">Fisika</field>
+      <field name="daerah_asal">Jakarta</field>
+      <field name="ipk">3.55</field>
+      <field name="kepala_jurusan">Prof. blabla</field>
+      <field name="semester">8</field>
+      <field name="jenis_kelamin">Laki-laki</field>
+      <field name="state">interview</field>
+    </record>
+    <record id="demo_id_3" model="interndata.mahasiswa">
+      <field name="name">Angel</field>
+      <field name="nim">3333333</field>
+      <field name="jurusan">IT</field>
+      <field name="daerah_asal">Riau</field>
+      <field name="ipk">3.33</field>
+      <field name="kepala_jurusan">Prof. blabla</field>
+      <field name="semester">7</field>
+      <field name="jenis_kelamin">Perempuan</field>
+      <field name="state">lolos</field>
+    </record>
+    <record id="demo_id_4" model="interndata.mahasiswa">
+      <field name="name">Aurel</field>
+      <field name="nim">4444444</field>
+      <field name="jurusan">Dokter</field>
+      <field name="daerah_asal">Lombok</field>
+      <field name="ipk">3.33</field>
+      <field name="kepala_jurusan">Prof. blala</field>
+      <field name="semester">7</field>
+      <field name="jenis_kelamin">Perempuan</field>
+      <field name="state">tidak lolos</field>
+    </record>
+
+
+    <!-- <record id="object1" model="interndata.interndata">
             <field name="name">Object 1</field>
             <field name="value">10</field>
           </record>
@@ -24,7 +118,7 @@
           <record id="object4" model="interndata.interndata">
             <field name="name">Object 4</field>
             <field name="value">40</field>
-          </record>
--->
-    </data>
+          </record> -->
+
+  </data>
 </odoo>

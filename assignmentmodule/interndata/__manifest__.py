@@ -25,10 +25,10 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'views/menu.xml',
         'wizard/inputmahasiswa_view_wizard.xml',
         'report/report.xml',
         'report/print_sr_mahasiswa.xml',
-        'views/menu.xml',
         'views/program_view.xml',
         'views/mahasiswa_view.xml',
         'views/perusahaan_view.xml',

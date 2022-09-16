@@ -34,5 +34,5 @@
   </record>
 
   <!-- This Menu Item must have a parent and an action -->
-  <menuitem id="interndata_inputmahasiswa_menu_act" name="Input Mahasiswa" parent="interndata_menu_root" action="interndata_inputmahasiswa_action" sequence="70" />
+  <menuitem id="interndata_inputmahasiswa_menu_act" name="Input Mahasiswa" parent="interndata_menu_root" action="interndata_inputmahasiswa_action" sequence="65" />
 </odoo>
