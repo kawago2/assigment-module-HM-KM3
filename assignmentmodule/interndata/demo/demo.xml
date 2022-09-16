@@ -1,6 +1,5 @@
 <odoo>
   <data>
-
     <record id="id_program_1" model="interndata.program">
       <field name="name">Magang</field>
     </record>
@@ -64,6 +63,7 @@
       <field name="program_id" ref="interndata.id_program_1" />
       <field name="perusahaan_id" ref="interndata.id_perusahaan_1" />
       <field name="universitas_id" ref="interndata.id_universitas_1" />
+      <field name="avatar" type="base64" file="/home/kawago/Documents/HashMicro/assignment-git/assignmentmodule/interndata/demo/images/anya.jpg"/>
     </record>
     <record id="demo_id_2" model="interndata.mahasiswa">
       <field name="name">Angga</field>
